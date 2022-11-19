@@ -4,18 +4,18 @@ import axios, { AxiosInstance } from 'axios';
 import { Model } from 'mongoose';
 import { Pokemon } from 'src/pokemon/entities/pokemon.entity';
 import { PokemonResponse } from './interfaces/pokemon-response.interface';
+import { AxiosAdapter } from '../common/adapters/axios.adapter';
 
 @Injectable()
 export class SeedService {
-  private readonly axios: AxiosInstance = axios;
-
   constructor(
     @InjectModel(Pokemon.name)
     private readonly pokemonModel: Model<Pokemon>,
+    private readonly http: AxiosAdapter,
   ) {}
 
   async executeSeed() {
-    const { data } = await this.axios.get<PokemonResponse>(
+    const data = await this.http.get<PokemonResponse>(
       `https://pokeapi.co/api/v2/pokemon?limit=1000`,
     );
 
