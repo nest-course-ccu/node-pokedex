@@ -21,6 +21,18 @@ npm i -g @nestjs/cli
 docker-compose up -d
 ```
 
+## Env
+
+Clone file __.env.template__ and rename the new file to __.env__
+
+Fill the defined variables in __.env__
+
+Run application in dev with
+
+```
+npm run start:dev
+```
+
 ## Insert Seeds
 
 Use the following endpoint
