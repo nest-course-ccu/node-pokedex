@@ -41,6 +41,28 @@ Use the following endpoint
 http://localhost:3000/api/v2/seed
 ```
 
+## Production build
+
+1. Create file __.env.prod__
+2. Fill production environment variables
+3. Create image
+
+## Build
+```
+docker-compose -f docker-compose.yaml --env-file .env.prod up --build
+```
+
+## Run
+```
+docker-compose -f docker-compose.yaml --env-file .env.prod up
+```
+
+## Deploy in heroku
+```
+git commit --allow-empty -m "Trigger heroku deploy"
+git push heroku <master|main>
+```
+
 ## Stack 
 * MongoDB
 * Nest
